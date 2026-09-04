@@ -4,6 +4,16 @@ const lightboxClose = document.getElementById("lightboxClose");
 const lightboxPrev = document.getElementById("lightboxPrev");
 const lightboxNext = document.getElementById("lightboxNext");
 
+// Add the new Buyer Due Diligence page to the existing live-site navigation
+const liveNav = document.querySelector("header nav");
+if (liveNav && !liveNav.querySelector('a[href="due-diligence.html"]')) {
+    const dueDiligenceLink = document.createElement("a");
+    dueDiligenceLink.href = "due-diligence.html";
+    dueDiligenceLink.textContent = "Due Diligence";
+    const contactLink = liveNav.querySelector('a[href="#contact"]');
+    liveNav.insertBefore(dueDiligenceLink, contactLink);
+}
+
 const clickableImages = Array.from(
     document.querySelectorAll(".concept-card img, .gallery-item img")
 );

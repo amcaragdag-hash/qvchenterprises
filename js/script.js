@@ -4,14 +4,24 @@ const lightboxClose = document.getElementById("lightboxClose");
 const lightboxPrev = document.getElementById("lightboxPrev");
 const lightboxNext = document.getElementById("lightboxNext");
 
-// Add the new Buyer Due Diligence page to the existing live-site navigation
+// Add Buyer Due Diligence and Actual Site Media to the existing live-site navigation
 const liveNav = document.querySelector("header nav");
-if (liveNav && !liveNav.querySelector('a[href="due-diligence.html"]')) {
-    const dueDiligenceLink = document.createElement("a");
-    dueDiligenceLink.href = "due-diligence.html";
-    dueDiligenceLink.textContent = "Due Diligence";
+if (liveNav) {
     const contactLink = liveNav.querySelector('a[href="#contact"]');
-    liveNav.insertBefore(dueDiligenceLink, contactLink);
+
+    if (!liveNav.querySelector('a[href="media.html"]')) {
+        const mediaLink = document.createElement("a");
+        mediaLink.href = "media.html";
+        mediaLink.textContent = "Actual Site Media";
+        liveNav.insertBefore(mediaLink, contactLink);
+    }
+
+    if (!liveNav.querySelector('a[href="due-diligence.html"]')) {
+        const dueDiligenceLink = document.createElement("a");
+        dueDiligenceLink.href = "due-diligence.html";
+        dueDiligenceLink.textContent = "Due Diligence";
+        liveNav.insertBefore(dueDiligenceLink, contactLink);
+    }
 }
 
 const clickableImages = Array.from(

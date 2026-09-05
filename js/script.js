@@ -24,6 +24,21 @@ if (liveNav) {
     }
 }
 
+// Add the official Riverside County parcel portal before the Google Maps location link
+const googleMapsButton = document.querySelector('.map-copy a[href*="google.com/maps"]');
+if (googleMapsButton && !document.querySelector('.map-copy a[href*="rivcoview.rivcoacr.org"]')) {
+    const rivCoViewButton = document.createElement("a");
+    rivCoViewButton.className = googleMapsButton.className;
+    rivCoViewButton.href = "https://rivcoview.rivcoacr.org/#/Property-Search/668080049";
+    rivCoViewButton.target = "_blank";
+    rivCoViewButton.rel = "noopener noreferrer";
+    rivCoViewButton.textContent = "View Property on RivCoView";
+    rivCoViewButton.style.marginRight = "12px";
+    rivCoViewButton.style.marginBottom = "12px";
+    googleMapsButton.parentNode.insertBefore(rivCoViewButton, googleMapsButton);
+    googleMapsButton.textContent = "View Area on Google Maps";
+}
+
 const clickableImages = Array.from(
     document.querySelectorAll(".concept-card img, .gallery-item img")
 );
